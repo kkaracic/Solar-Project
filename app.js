@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.get('/projects', (req, res) => {
+    res.render('projects');
+})
 
 app.listen(3000, () => {
     console.log("Serving on the port 3000");
