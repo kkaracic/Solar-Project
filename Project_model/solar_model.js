@@ -15,5 +15,5 @@ const ProjectModel = new Schema({
     Maximum_output_power: Number,
     Solar_panel_type: string,
     Number_of_strings: Number,
-
+    Annual_production: Number,
 })
