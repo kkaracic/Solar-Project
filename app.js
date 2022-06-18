@@ -20,7 +20,9 @@ app.get('/projects', (req, res) => {
 app.get('/new_project', (res, req) => {
     res.render('new_project');
 })
-
+app.get('/saved_project', async (req, res) => {
+    res.send(req.body);
+})
 app.listen(3000, () => {
     console.log("Serving on the port 3000");
 })
