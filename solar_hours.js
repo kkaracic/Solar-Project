@@ -1,0 +1,3 @@
+const sun_hours = {
+
+}
