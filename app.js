@@ -17,8 +17,8 @@ app.get('/projects', (req, res) => {
     res.render('projects');
 })
 
-app.get('/new_project', (res, req) => {
-    res.render('new_project');
+app.get('/investor', (res, req) => {
+    res.render('investor_calculation');
 })
 app.get('/saved_project', async (req, res) => {
     res.send(req.body);
