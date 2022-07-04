@@ -1,7 +1,7 @@
 const fs = require("fs");
 const file = fs.readFileSync("ekvator.txt");
 
-const array = file.toString().split('\n').slice(1);
+const array = file.toString().split('\r').slice(1);
 
 
 let objects = []
