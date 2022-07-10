@@ -3,9 +3,11 @@ const { stringify } = require("nodemon/lib/utils");
 const Schema = mongoose.Schema;
 
 const IrrModel = new Schema({
-    Latitude: string,
-    Longitude: string,
-    Irradiation: string
+    Latitude: String,
+    Longitude: String,
+    Irradiation: String
 });
 
 module.exports('IrrModel', IrrModel);
+
+mongoose.connect('mongodb://localhost:27017/sollar-pr');
