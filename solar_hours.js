@@ -1,3 +1,0 @@
-const sun_hours = {
-
-}
