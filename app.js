@@ -4,7 +4,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 
-mongoose.connect('mongodb://localhost:27017/sollar-pr');
+mongoose.connect('mongodb://localhost:27017/sollar-pr', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Pages'));
