@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-const irr = require("data.js");
 
 mongoose.connect('mongodb://localhost:27017/sollar-pr', {
     useNewUrlParser: true,
@@ -15,7 +14,6 @@ db.once("open", () => {
     console.log("Database connected");
 })
 
-//db.sollar - pr.insert(objects);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Pages'));
