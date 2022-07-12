@@ -8,4 +8,4 @@ const IrrModel = new Schema({
     Irradiation: String
 });
 
-module.exports('IrrModel', IrrModel);
+module.exports = mongoose.model('IrrModel', IrrModel);
