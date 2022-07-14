@@ -3,7 +3,7 @@ const file = fs.readFileSync("ekvator.txt");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
 
-mongoose.connect('mongodb://localhost:27017/sollar-pr', {
+mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -28,5 +28,8 @@ for (let i = 0; i < array.length; i++) {
     });
 }
 
-db.create({ Latitude: "0", Longitude: "0", Irr: "2000" });
-console.log(objects);
+const irr1 = new IrrModel({ Latitude: "100", Longitude: "200", Irradiation: "3001" });
+irr1.save();
+console.log(irr1)
+
+//console.log(objects);

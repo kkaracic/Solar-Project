@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
 
-mongoose.connect('mongodb://localhost:27017/sollar-pr', {
+mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
