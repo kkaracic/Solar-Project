@@ -14,7 +14,7 @@ db.once("open", () => {
     console.log("Database connected");
 })
 
-const array = file.toString().split('\r').slice(1);
+const array = file.toString().split('\r\n').slice(1);
 
 
 let objects = []
@@ -26,14 +26,16 @@ for (let i = 0; i < array.length; i++) {
         Longitude: niz[1],
         Irr: niz[2]
     });
+
+    const irr1 = new IrrModel({ Latitude: objects[i].Latitude, Longitude: objects[i].Longitude, Irradiation: objects[i].Irr });
+    irr1.save();
 }
 
-const irr1 = new IrrModel({ Latitude: "100", Longitude: "200", Irradiation: "3001" });
+/*const irr1 = new IrrModel({ Latitude: "100", Longitude: "200", Irradiation: "3001" });
 irr1.save().then(item => {
     console.log("DB Item saved --->", item);
 }).catch(err => {
     console.log("unable to save to database");
-});
-
+});*/
 
 console.log(objects);
