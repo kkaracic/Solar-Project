@@ -31,6 +31,11 @@ app.get('/projects', (req, res) => {
 app.get('/investor', (req, res) => {
     res.render('investor_calculation');
 })
+
+app.get('/resultsInv', (req, res) => {
+    res.render('resultsInv');
+})
+
 app.get('/saved_project', async (req, res) => {
     res.send(req.body);
 })
