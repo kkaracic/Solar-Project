@@ -29,7 +29,11 @@ for (let i = 0; i < array.length; i++) {
 }
 
 const irr1 = new IrrModel({ Latitude: "100", Longitude: "200", Irradiation: "3001" });
-irr1.save();
-console.log(irr1)
+irr1.save().then(item => {
+    console.log("DB Item saved --->", item);
+}).catch(err => {
+    console.log("unable to save to database");
+});
 
-//console.log(objects);
+
+console.log(objects);
