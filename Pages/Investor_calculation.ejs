@@ -23,7 +23,15 @@
                 </datalist>
             </select>
             <label for="Longitude">Longitude</label>
-            <input type="list" id="Longitude">
+            <select list="Longitude" id="Longitude">
+                <datalist id="Longitude">
+                    <% for (let i=0; i < 181; i++) { %>
+                        <option value="1">
+                            <%= i %>
+                        </option>
+                        <% } %>
+                </datalist>
+            </select>
             <label for="Average month">Average monthly consumption (kWh)</label>
             <input type="number" id="Average month">
         </div>
