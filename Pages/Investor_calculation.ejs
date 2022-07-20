@@ -13,7 +13,15 @@
     <form action="/resultsInv" method="get">
         <div>
             <label for="Latitude">Latitude</label>
-            <input type="list" id="Latitude">
+            <select list="Latitude" id="Latitude">
+                <datalist id="Latitude">
+                    <% for (let i=0; i < 91; i++) { %>
+                        <option value="1">
+                            <%= i %>
+                        </option>
+                        <% } %>
+                </datalist>
+            </select>
             <label for="Longitude">Longitude</label>
             <input type="list" id="Longitude">
             <label for="Average month">Average monthly consumption (kWh)</label>
