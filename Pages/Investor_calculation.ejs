@@ -32,11 +32,22 @@
                         <% } %>
                 </datalist>
             </select>
-            <label for="Average month">Average monthly consumption (kWh)</label>
-            <input type="number" id="Average month">
+            <div>
+                <label for="Hemispheres">Select hemispheres</label>
+                <br>
+                <input type="radio" name="N/S" value="North" checked="checked">
+                <input type="radio" name="N/S" value="South">
+                <br>
+                <input type="radio" name="W/E" value="West" checked="checked">
+                <input type="radio" name="W/E" value="East">
+            </div>
+            <div>
+                <label for="Average month">Average monthly consumption (kWh)</label>
+                <input type="number" id="Average month" required>
+            </div>
         </div>
         <div>
-            <button>Calculate required panels</button>
+            <input type="submit" value="Calculate required panels">
         </div>
     </form>
 
