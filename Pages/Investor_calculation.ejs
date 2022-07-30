@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New project</title>
+
 </head>
 
 <body>
     <h1>Panel number calculation</h1>
-    <form action="/resultsInv" method="get">
+    <form action="/resultsInv" method="post">
         <div>
             <label for="Latitude">Latitude</label>
             <select list="Latitude" id="Latitude">
@@ -40,7 +41,9 @@
                 <label for="South">South</label>
                 <input type="radio" name="N/S" value="South">
                 <br>
+                <label for="West">West</label>
                 <input type="radio" name="W/E" value="West" checked="checked">
+                <label for="East">East</label>
                 <input type="radio" name="W/E" value="East">
             </div>
             <div>
@@ -52,7 +55,6 @@
             <input type="submit" value="Calculate required panels">
         </div>
     </form>
-
 
 </body>
 
