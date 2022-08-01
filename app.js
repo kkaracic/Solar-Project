@@ -19,6 +19,8 @@ db.once("open", () => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Pages'));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
     console.log("Hello from the other side");
     res.render('home');
