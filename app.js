@@ -34,9 +34,9 @@ app.get('/investor', (req, res) => {
     res.render('investor_calculation');
 })
 
-app.get('/resultsInv', (req, res) => {
+/*app.get('/resultsInv', (req, res) => {
     res.render('resultsInv');
-})
+})*/
 
 app.post('/resultsInv', async (req, res) => {
     res.render('resultsInv');
