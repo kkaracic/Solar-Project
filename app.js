@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
+const InputModel = require("./Project_model/input_model")
 
 mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
@@ -34,15 +35,10 @@ app.get('/investor', (req, res) => {
     res.render('investor_calculation');
 })
 
-/*app.get('/resultsInv', (req, res) => {
-    res.render('resultsInv');
-})*/
-
 app.post('/resultsInv', async (req, res) => {
     res.render('resultsInv');
-    //res.send(req.body);
-    //res.redirect('home');
-    console.log(req.body);
+    const input_data = new InputModel(req.body);
+    input_data.save();
 })
 
 app.get('/saved_project', async (req, res) => {
