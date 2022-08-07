@@ -38,7 +38,10 @@ app.get('/investor', (req, res) => {
 app.post('/resultsInv', async (req, res) => {
     const abba = req.body;
     const apiResponse = JSON.parse(JSON.stringify(req.body));
-    console.log(apiResponse.Latitude);
+    const iLatitude = apiResponse.Latitude;
+    const iLongitude = apiResponse.Longitude;
+    const iIrradiation = db.collection("irrmodels").find();
+    console.log(iIrradiation);
     //const selma = "irvijgeigjrijtigjtrigjri";
     //const input_data = new InputModel(req.body);
     //input_data.save();
