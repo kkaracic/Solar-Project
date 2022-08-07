@@ -40,7 +40,7 @@ app.post('/resultsInv', async (req, res) => {
     const apiResponse = JSON.parse(JSON.stringify(req.body));
     const iLatitude = apiResponse.Latitude;
     const iLongitude = apiResponse.Longitude;
-    const iIrradiation = db.collection("irrmodels").find();
+    const iIrradiation = await IrrModel.find();
     console.log(iIrradiation);
     //const selma = "irvijgeigjrijtigjtrigjri";
     //const input_data = new InputModel(req.body);
