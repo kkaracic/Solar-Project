@@ -36,9 +36,14 @@ app.get('/investor', (req, res) => {
 })
 
 app.post('/resultsInv', async (req, res) => {
-    res.render('resultsInv');
-    const input_data = new InputModel(req.body);
-    input_data.save();
+    const abba = req.body;
+    const apiResponse = JSON.parse(JSON.stringify(req.body));
+    console.log(apiResponse.Latitude);
+    //const selma = "irvijgeigjrijtigjtrigjri";
+    //const input_data = new InputModel(req.body);
+    //input_data.save();
+    res.render('resultsInv', { abba: abba });
+
 })
 
 app.get('/saved_project', async (req, res) => {
