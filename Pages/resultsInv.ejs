@@ -12,11 +12,20 @@
 <body>
     <h1>Rezultatiii :)</h1>
 
-    <%=console.log(iData) %>
 
-        <label for="Out">Required number of panels: </label>
+    <%var number_of_panels=(iData.Average_monthly_consumption*12)/(0.2*iData.Irradiation)%>
 
-        <output></output>
+        <% number_of_panels=number_of_panels/1.7 %>
+
+            <% number_of_panels=Math.ceil(number_of_panels)%>
+
+                <%=console.log(iData) %>
+
+                    <label for=" Out">Required number of panels: </label>
+
+                    <output>
+                        <%=console.log(number_of_panels)%>
+                    </output>
 
 </body>
 
