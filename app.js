@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
-const InputModel = require("./Project_model/input_model")
 
 mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
@@ -38,13 +37,18 @@ app.get('/investor', (req, res) => {
 app.post('/resultsInv', async (req, res) => {
     const abba = req.body;
     const apiResponse = JSON.parse(JSON.stringify(req.body));
-    const iLatitude = apiResponse.Latitude;
-    const iLongitude = apiResponse.Longitude;
-    const iIrradiation = await IrrModel.find();
-    console.log(iIrradiation);
-    //const selma = "irvijgeigjrijtigjtrigjri";
-    //const input_data = new InputModel(req.body);
-    //input_data.save();
+    var iLatitude = apiResponse.Latitude;
+    var iLongitude = apiResponse.Longitude;
+    if (apiResponse.N_or_S === 'South') {
+        iLatitude = iLatitude * (-1);
+        console.log(iLatitude);
+    }
+    if (apiResponse.W_or_E === 'West') {
+        iLongitude = iLongitude * (-1);
+        console.log(iLongitude);
+    }
+    const iModel = await IrrModel.find({ $and: [{ Latitude: iLatitude }, { Longitude: iLongitude }] });
+    console.log(iModel);
     res.render('resultsInv', { abba: abba });
 
 })
