@@ -41,12 +41,10 @@ app.post('/resultsInv', async (req, res) => {
     if (apiResponse.N_or_S === 'South') {
         iLatitude = iLatitude * (-1);
         iLatitude = iLatitude.toString();
-        console.log(iLatitude);
     }
     if (apiResponse.W_or_E === 'West') {
         iLongitude = iLongitude * (-1);
         iLongitude = iLongitude.toString();
-        console.log(iLongitude);
     }
     const iModel = await IrrModel.find({ $and: [{ Latitude: iLatitude }, { Longitude: iLongitude }] });
     console.log(iModel);
