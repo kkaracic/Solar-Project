@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-app.get('/projects', (req, res) => {
-    res.render('projects');
+app.get('/questions', (req, res) => {
+    res.render('questions');
 })
 
 app.get('/investor', (req, res) => {
@@ -59,9 +59,6 @@ app.post('/resultsInv', async (req, res) => {
 
 })
 
-app.get('/saved_project', async (req, res) => {
-    res.send(req.body);
-})
 app.listen(3000, () => {
     console.log("Serving on the port 3000");
 })
