@@ -14,11 +14,11 @@
         src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
     <style>
         #map {
             width: 100%;
             height: 400px;
-            z-index: 100;
         }
 
         #mapSearchContainer {
@@ -49,84 +49,81 @@
 
     <div id="map"></div>
     <div class='pointer'>
-        << Click search button</div>
+    </div>
 
-            <script>
-                // Initialize the map and assign it to a variable for later use
-                var map = L.map('map', {
-                    // Set latitude and longitude of the map center (required)
-                    center: [43.8563, 18.4131],
-                    // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-                    zoom: 10
-                });
+    <script>
+        var map = L.map('map', {
+            center: [43.8563, 18.4131],
+            zoom: 8
+        });
 
-                L.control.scale().addTo(map);
+        L.control.scale().addTo(map);
 
-                // Create a Tile Layer and add it to the map
-                var tiles = new L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map);
-                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
+        // Create a Tile Layer and add it to the map
+        var tiles = new L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-                var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+        var searchControl = new L.esri.Controls.Geosearch().addTo(map);
 
-                var results = new L.LayerGroup().addTo(map);
+        var results = new L.LayerGroup().addTo(map);
 
-                searchControl.on('results', function (data) {
-                    results.clearLayers();
-                    for (var i = data.results.length - 1; i >= 0; i--) {
-                        results.addLayer(L.marker(data.results[i].latlng));
-                    }
-                });
+        searchControl.on('results', function (data) {
+            results.clearLayers();
+            for (var i = data.results.length - 1; i >= 0; i--) {
+                results.addLayer(L.marker(data.results[i].latlng));
+            }
+        });
 
-                setTimeout(function () { $('.pointer').fadeOut('slow'); }, 3400);
-            </script>
-            <form action="/resultsInv" method="post">
-                <div>
-                    <label for="Latitude">Latitude</label>
-                    <select list="Latitude" id="Latitude" name="Latitude">
-                        <datalist id="Latitude">
-                            <% for (let i=0; i < 91; i++) { %>
-                                <option value=<%=i %>>
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </datalist>
-                    </select>
-                    <label for="Longitude">Longitude</label>
-                    <select list="Longitude" id="Longitude" name="Longitude">
-                        <datalist id="Longitude">
-                            <% for (let i=0; i < 181; i++) { %>
-                                <option value=<%=i %>>
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </datalist>
-                    </select>
-                    <div>
-                        <label for="Hemispheres">Select hemispheres</label>
-                        <br>
-                        <label for="North">North</label>
-                        <input type="radio" name="N_or_S" value="North" checked="checked">
-                        <label for="South">South</label>
-                        <input type="radio" name="N_or_S" value="South">
-                        <br>
-                        <label for="West">West</label>
-                        <input type="radio" name="W_or_E" value="West" checked="checked">
-                        <label for="East">East</label>
-                        <input type="radio" name="W_or_E" value="East">
-                    </div>
-                    <div>
-                        <label for="Average month">Average monthly consumption (kWh)</label>
-                        <input type="number" id="Average month" name="Average_monthly_consumption">
-                    </div>
-                </div>
-                <div>
-                    <input type="submit" value="Calculate required panels">
-                </div>
-            </form>
+        setTimeout(function () { $('.pointer').fadeOut('slow'); }, 3400);
+    </script>
 
-            <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <form action="/resultsInv" method="post">
+        <div>
+            <label for="Latitude">Latitude</label>
+            <select list="Latitude" id="Latitude" name="Latitude">
+                <datalist id="Latitude">
+                    <% for (let i=0; i < 91; i++) { %>
+                        <option value=<%=i %>>
+                            <%= i %>
+                        </option>
+                        <% } %>
+                </datalist>
+            </select>
+            <label for="Longitude">Longitude</label>
+            <select list="Longitude" id="Longitude" name="Longitude">
+                <datalist id="Longitude">
+                    <% for (let i=0; i < 181; i++) { %>
+                        <option value=<%=i %>>
+                            <%= i %>
+                        </option>
+                        <% } %>
+                </datalist>
+            </select>
+            <div>
+                <label for="Hemispheres">Select hemispheres</label>
+                <br>
+                <label for="North">North</label>
+                <input type="radio" name="N_or_S" value="North" checked="checked">
+                <label for="South">South</label>
+                <input type="radio" name="N_or_S" value="South">
+                <br>
+                <label for="West">West</label>
+                <input type="radio" name="W_or_E" value="West" checked="checked">
+                <label for="East">East</label>
+                <input type="radio" name="W_or_E" value="East">
+            </div>
+            <div>
+                <label for="Average month">Average monthly consumption (kWh)</label>
+                <input type="number" id="Average month" name="Average_monthly_consumption">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Calculate required panels">
+        </div>
+    </form>
+
 
 </body>
 
