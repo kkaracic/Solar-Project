@@ -1,4 +1,5 @@
 const express = require("express");
+var bodyParser = require('body-parser');
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
@@ -19,6 +20,8 @@ db.once("open", () => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Pages'));
 
+app.use(bodyParser.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -35,9 +38,11 @@ app.get('/investor', (req, res) => {
 })
 
 app.post('/resultsInv', async (req, res) => {
+    //console.log(LatLong.slat);
     const apiResponse = JSON.parse(JSON.stringify(req.body));
     var iLatitude = apiResponse.Latitude;
     var iLongitude = apiResponse.Longitude;
+    console.log(req.body.slat);
     if (apiResponse.N_or_S === 'South') {
         iLatitude = iLatitude * (-1);
         iLatitude = iLatitude.toString();
