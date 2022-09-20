@@ -42,7 +42,8 @@ app.post('/resultsInv', async (req, res) => {
     const apiResponse = JSON.parse(JSON.stringify(req.body));
     var iLatitude = apiResponse.Latitude;
     var iLongitude = apiResponse.Longitude;
-    console.log(req.body.slat);
+    console.log(parseInt(req.body.slat));
+    console.log(parseInt(req.body.slon));
     if (apiResponse.N_or_S === 'South') {
         iLatitude = iLatitude * (-1);
         iLatitude = iLatitude.toString();

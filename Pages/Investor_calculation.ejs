@@ -70,9 +70,11 @@
             for (var i = data.results.length - 1; i >= 0; i--) {
                 results.addLayer(L.marker(data.results[i].latlng));
             }
-            var input = document.getElementById('hiddenInput');
-            input.value = data.latlng.lat;
-            console.log(input.value);
+            var inputlat = document.getElementById('hiddenInputlat');
+            inputlat.value = data.latlng.lat;
+            var inputlon = document.getElementById('hiddenInputlon');
+            inputlon.value = data.latlng.lng;
+            // console.log(input.value.latt);
         });
         /*const axios = require("axios");
         axios({
@@ -88,7 +90,8 @@
 
     <form action="/resultsInv" method="post">
         <div>
-            <input type="hidden" name="slat" id="hiddenInput" />
+            <input type="hidden" name="slat" id="hiddenInputlat" />
+            <input type="hidden" name="slon" id="hiddenInputlon" />
             <label for="Latitude">Latitude</label>
             <select list="Latitude" id="Latitude" name="Latitude">
                 <datalist id="Latitude">
