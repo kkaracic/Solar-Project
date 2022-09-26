@@ -12,13 +12,14 @@
 <body>
     <h1>Rezultatiii :)</h1>
 
-    <%var number_of_panels=(iData.Average_monthly_consumption*12)/(0.19*iData.Irradiation)%>
+    <%var number_of_panels=(iData.Average_monthly_consumption*12)/(0.18*iData.Irradiation)%>
         <% number_of_panels=number_of_panels/1.7 %>
             <% number_of_panels450=number_of_panels*1.7/2.09%>
                 <% number_of_panels550=number_of_panels*1.7/2.56%>
-                    <% number_of_panels=Math.ceil(number_of_panels)%>
-                        <% number_of_panels450=Math.ceil(number_of_panels450)%>
-                            <% number_of_panels550=Math.ceil(number_of_panels550)%>
+                    <% number_of_panels=Math.round(number_of_panels)%>
+                        <% number_of_panels450=Math.round(number_of_panels450)%>
+                            <% number_of_panels550=Math.round(number_of_panels550)%>
+
 
                                 <table>
                                     <tr>
