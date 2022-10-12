@@ -22,9 +22,11 @@
     "body-parser": "^1.20.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "jquery-free": "^0.2.1",
     "leaflet-geosearch": "^3.6.1",
     "mongoose": "^6.3.6",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "bootstrap": "^5.2.1",
