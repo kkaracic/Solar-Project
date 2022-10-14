@@ -1,7 +1,7 @@
 const express = require("express");
 var bodyParser = require('body-parser');
 const app = express();
-const path = require("path");
+var path = require("path");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
 
@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, 'Pages'));
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(path.join(__dirname, '/public/')));
 
 app.use(express.urlencoded({ extended: true }));
 
