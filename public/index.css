@@ -31,3 +31,12 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    color: white;
+}
