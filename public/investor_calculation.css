@@ -73,3 +73,12 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    color: white;
+}
