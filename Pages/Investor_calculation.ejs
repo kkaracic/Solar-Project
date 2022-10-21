@@ -56,10 +56,12 @@
         <div class="container">
             <br>
             <br>
-            <h1 class="mt-5">Panel number calculation</h1>
+            <h1 class="mt-5">Investment in solar panels</h1>
             <p class="lead">
-                To see how many solar panels you need to cover up your consumption, please tell us where
-                you would like to install panels. Click on the search icon in the map below
+                To begin investement in solar panels, one needs to figure out how many of them is required.
+                There are several factors that have affect on it, and the first one is the location.
+                So, please provide us the location of your future PV system. Click on the search icon &#x1F50D; in the
+                map below
                 and start typing the name of the location. On the menu which will appear afterwards, choose
                 the exact location.
             </p>
@@ -143,11 +145,18 @@
                         <label for="East">East</label>
                         <input type="radio" name="W_or_E" value="East">
                     </div>
-                    <div>
-                        <label for="Average month">Average
-                            monthly consumption
-                            (kWh)</label>
-                        <input type="number" id="Average month" name="Average_monthly_consumption">
+                    <p class="lead">
+                        There is only one more parameter we need. Actually, there are a few more, but for them
+                        we make an assumptions. It does take effect but the results that we provide should be close
+                        enough to the correct ones. If you want to cover up your annual consumption with the solar
+                        panels
+                        please provide it to us.
+
+                    </p>
+                    <div class="form-inline">
+                        <label for="Average month" class="lead">Average monthly consumption (kWh): </label>
+                        <input style="width: 50%;" ; type="number" id="Average month" name="Average_monthly_consumption"
+                            class="form-control">
                     </div>
                 </div>
                 <div>
