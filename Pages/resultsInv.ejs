@@ -2,60 +2,104 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>New investor project</title>
+    <base href="/">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link href="resultsInv.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
-    <h1>Rezultatiii :)</h1>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Solar project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-shrink-0">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="mt-5">Results</h1>1>
 
-    <%var number_of_panels=(iData.Average_monthly_consumption*12)/(0.18*iData.Irradiation)%>
-        <% number_of_panels=number_of_panels/1.7 %>
-            <% number_of_panels450=number_of_panels*1.7/2.09%>
-                <% number_of_panels550=number_of_panels*1.7/2.56%>
-                    <% number_of_panels=Math.round(number_of_panels)%>
-                        <% number_of_panels450=Math.round(number_of_panels450)%>
-                            <% number_of_panels550=Math.round(number_of_panels550)%>
+            <%var number_of_panels=(iData.Average_monthly_consumption*12)/(1.7*0.18*iData.Irradiation)%>
+                <!-- Custom styles for this template -->
+                <% number_of_panels450=number_of_panels*1.7/2.09%>
+                    <% number_of_panels550=number_of_panels*1.7/2.56%>
+                        <% number_of_panels=Math.round(number_of_panels)%>
+                            <% number_of_panels450=Math.round(number_of_panels450)%>
+                                <% number_of_panels550=Math.round(number_of_panels550)%>
+                                    <table>
+                                        <tr>
+                                            <td>350 W</td>
+                                            <td>
+                                                <output id="Out">
+                                                    <%=number_of_panels%>
+                                                </output>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>450 W</td>
+                                            <td>
+                                                <output id="Out2">
+                                                    <%=number_of_panels450%>
+                                                </output>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>550 W</td>
+                                            <td>
+                                                <output id="Out2">
+                                                    <%=number_of_panels550%>
+                                                </output>
+                                            </td>
+                                        </tr>
+                                    </table>
 
 
-                                <table>
-                                    <tr>
-                                        <td>350 W</td>
-                                        <td>
-                                            <output id="Out">
-                                                <%=number_of_panels%>
-                                            </output>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>450 W</td>
-                                        <td>
-                                            <output id="Out2">
-                                                <%=number_of_panels450%>
-                                            </output>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>550 W</td>
-                                        <td>
-                                            <output id="Out2">
-                                                <%=number_of_panels550%>
-                                            </output>
-                                        </td>
-                                    </tr>
-                                </table>
+                                    <%=console.log(iData) %>
 
+                                        <label for=" Out">Required number of panels: </label>
 
-                                <%=console.log(iData) %>
-
-                                    <label for=" Out">Required number of panels: </label>
-
-                                    <output id="Out">
-                                        <%=number_of_panels%>
-                                    </output>
+                                        <output id="Out">
+                                            <%=number_of_panels%>
+                                        </output>
+        </div>
+    </main>
+    <footer>
+        <nav class="navbar navbar-dark bg-dark" style="height: 25px;">
+            <a class="navbar-center" style="color: white;">Solar project &reg; 2022</a>
+        </nav>
+    </footer>
 
 </body>
 
