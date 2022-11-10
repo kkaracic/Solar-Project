@@ -112,10 +112,6 @@
                                         <p class="lead">
                                             Solar panels alone are pretty much useless without invertors, which are
                                             converting DC into AC.
-                                            One of the main characteristics of the inverter is its power rating.
-                                            Although
-                                            it seems logical to have equal power ratings of inverter and the solar
-                                            system, it is not the case.
                                             Most solar systems don not regularly produce at their nameplate capacity, so
                                             the best option is choosing an inverter which power rating is about 80% of
                                             the solar system.
@@ -130,7 +126,21 @@
                                                     8000$.
                                                     For large systems, tipically more than one inverter is used, and it
                                                     costs regularly over 10 000$.
+                                                    And for cost of installation, it is different by country because of
+                                                    the labor cost, but in the developped country, for your system you
+                                                    should invest
+                                                    around
+                                                    <%=parseFloat(1.7*number_of_panels*15 /0.0929).toFixed(0)%>$
+
                                         </p>
+                                        <p class="lead">
+                                            When all expenses are sum up, we can estimate your investement around: <%=
+                                                number_of_panels*173+2300%> $
+                                        </p>
+
+                                        <span class="label label-warning">Note! Please be aware that these calculations
+                                            are not based on fully correct model, so our estimation can be wrong. If you
+                                            really want to invest, please consult an expert!</span>
                                         <div class="form-signin w-100 m-auto">
                                             <form action="/investor" method="get">
                                                 <button class="w-100 btn btn-lg btn-primary" style="width: 5px;">Back
