@@ -108,46 +108,78 @@
 
 
                                     <%=console.log(iData) %>
+                                        <% function rounding(v1) { %>
+                                            <% return Math.round(v1/100)*100 %>
+                                                <% } %>
+                                                    <% var power=rounding(350*number_of_panels)/1000 %>
 
-                                        <p class="lead">
-                                            Solar panels alone are pretty much useless without invertors, which are
-                                            converting DC into AC.
-                                            Most solar systems don not regularly produce at their nameplate capacity, so
-                                            the best option is choosing an inverter which power rating is about 80% of
-                                            the solar system.
-                                            Your system has power around <%= number_of_panels*350 %> watts,
-                                                so you should choose an inverter closest to <%=
-                                                    parseFloat(0.8*number_of_panels*350).toFixed(0) %>
-                                                    watts.
-                                                    Prices of inveters generally have a wide range, and it depends of
-                                                    the manufacturer and efficiency.
-                                                    But roughly, for systems under 10 kW, the price would go up to the
-                                                    2000$. For systems under 100 kW price could go up from 5000 to
-                                                    8000$.
-                                                    For large systems, tipically more than one inverter is used, and it
-                                                    costs regularly over 10 000$.
-                                                    And for cost of installation, it is different by country because of
-                                                    the labor cost, but in the developped country, for your system you
-                                                    should invest
-                                                    around
-                                                    <%=parseFloat(1.7*number_of_panels*15 /0.0929).toFixed(0)%>$
+                                                        <p class="lead">
+                                                            Solar panels alone are pretty much useless without
+                                                            invertors,
+                                                            which are
+                                                            converting DC into AC.
+                                                            Most solar systems don not regularly produce at their
+                                                            nameplate
+                                                            capacity, so
+                                                            the best option is choosing an inverter which power rating
+                                                            is
+                                                            about 80%
+                                                            of
+                                                            the solar system.
+                                                            Your system has power around <%power%> kW,
+                                                                so you should choose an inverter closest to <%=
+                                                                    rounding(power*0.8) %>
+                                                                    kW.
+                                                        </p>
+                                                        <p class="lead">
+                                                            Prices of inveters generally have a wide range, and it
+                                                            depends
+                                                            of
+                                                            the manufacturer and efficiency.
+                                                            But roughly, for systems under 10 kW, the price would go up
+                                                            to
+                                                            the
+                                                            2000$. For systems under 100 kW price could go up from 5000
+                                                            to
+                                                            8000$.
+                                                            For large systems, tipically more than one inverter is used,
+                                                            and
+                                                            it
+                                                            costs regularly over 10 000$.
+                                                            And for cost of installation, it is different by country
+                                                            because
+                                                            of
+                                                            the labor cost, but in the developped country, for your
+                                                            system
+                                                            you
+                                                            should invest
+                                                            around
+                                                            <%=rounding(1.7*number_of_panels*15 /0.0929)%>$
 
-                                        </p>
-                                        <p class="lead">
-                                            When all expenses are sum up, we can estimate your investement around: <%=
-                                                number_of_panels*173+2300%> $
-                                        </p>
+                                                        </p>
+                                                        <p class="lead">
+                                                            When all expenses are sum up, we can estimate your
+                                                            investement
+                                                            around:
+                                                            <%= number_of_panels*173+2300%> $
+                                                        </p>
 
-                                        <span class="label label-warning">Note! Please be aware that these calculations
-                                            are not based on fully correct model, so our estimation can be wrong. If you
-                                            really want to invest, please consult an expert!</span>
-                                        <div class="form-signin w-100 m-auto">
-                                            <form action="/investor" method="get">
-                                                <button class="w-100 btn btn-lg btn-primary" style="width: 5px;">Back
-                                                    to
-                                                    calculation</button>
-                                            </form>
-                                        </div>
+                                                        <span class="label label-warning">Note! Please be aware that
+                                                            these
+                                                            calculations
+                                                            are not based on fully correct model, so our estimation can
+                                                            be
+                                                            wrong. If
+                                                            you
+                                                            really want to invest, please consult an expert!</span>
+                                                        <div class="form-signin w-100 m-auto">
+                                                            <form action="/investor" method="get">
+                                                                <button class="w-100 btn btn-lg btn-primary"
+                                                                    style="width: 5px;">Back
+                                                                    to
+                                                                    calculation</button>
+                                                            </form>
+                                                        </div>
 
         </div>
     </main>
