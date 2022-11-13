@@ -126,9 +126,9 @@
                                                             about 80%
                                                             of
                                                             the solar system.
-                                                            Your system has power around <%power%> kW,
+                                                            Your system has power around <%=power%> kW,
                                                                 so you should choose an inverter closest to <%=
-                                                                    rounding(power*0.8) %>
+                                                                    parseFloat(power*0.8).toFixed(0) %>
                                                                     kW.
                                                         </p>
                                                         <p class="lead">
@@ -164,14 +164,16 @@
                                                             <%= number_of_panels*173+2300%> $
                                                         </p>
 
-                                                        <span class="label label-warning">Note! Please be aware that
+                                                        <div class="alert alert-warning"><strong>Note!</strong> Please
+                                                            be aware that
                                                             these
                                                             calculations
                                                             are not based on fully correct model, so our estimation can
                                                             be
                                                             wrong. If
                                                             you
-                                                            really want to invest, please consult an expert!</span>
+                                                            really want to invest, please consult an expert!
+                                                        </div>
                                                         <div class="form-signin w-100 m-auto">
                                                             <form action="/investor" method="get">
                                                                 <button class="w-100 btn btn-lg btn-primary"
