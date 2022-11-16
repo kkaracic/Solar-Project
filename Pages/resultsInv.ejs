@@ -68,7 +68,7 @@
                                     </p>
                                     <table class="table">
                                         <thead class="thead-dark">
-                                            <th scope="col">Rated power (W)</th>
+                                            <th scope="col">Rated power (Wp)</th>
                                             <th scope="col">Size of one panel (m2)</th>
                                             <th scope="col">Number of panels required</th>
                                             <th scope="col">Price range of one panel($)</th>
@@ -114,10 +114,11 @@
                                                     <% var power=rounding(350*number_of_panels)/1000 %>
 
                                                         <p class="lead">
-                                                            To clarify, you need <%= number_of_panels%> 350Wp panels
-                                                                <b>or</b>
-                                                                <%= number_of_panels450%> 450Wp panels <b>or</b>
-                                                                    <%= number_of_panels550%> 550Wp panels.
+                                                            To clarify, if you choose 350Wp panels, you need <%=
+                                                                number_of_panels%>
+                                                                and if you would like to use only 450Wp panels, you need
+                                                                <%= number_of_panels450%> panels and for 550 Wp
+                                                                    <%= number_of_panels550%> panels.
                                                         </p>
                                                         <p class="lead">
                                                             Solar panels alone are pretty much useless
@@ -190,8 +191,8 @@
         </div>
     </main>
     <footer>
-        <nav class="navbar navbar-dark bg-dark" style="height: 25px;">
-            <a class="navbar-center" style="color: rgb(236, 18, 18);">Solar project &reg; 2022</a>
+        <nav class="navbar fixed-bottom navbar-dark bg-dark" style="height: 25px; position: relative; bottom: 0px; ">
+            <a class="navbar-center" style="color: white;">Solar project &reg; 2022</a>
         </nav>
     </footer>
 

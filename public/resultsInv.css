@@ -50,10 +50,10 @@
 }
 
 .navbar-center {
-    position: fixed;
+    position: absolute;
     width: 100%;
     left: 0;
-    bottom: -200;
+    top: 0;
     text-align: center;
     color: white;
 }
