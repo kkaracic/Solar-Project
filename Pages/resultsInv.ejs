@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Back</a>
+                            <a class="nav-link" aria-current="page" href="/investor">Back</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">Home</a>
@@ -138,7 +138,7 @@
                                                             the solar system.
                                                             Your system has power around <%=power%> kW,
                                                                 so you should choose an inverter closest to
-                                                                <%= parseFloat(power*0.8).toFixed(0) %>
+                                                                <%= parseFloat(power*0.8).toFixed(1) %>
                                                                     kW.
                                                         </p>
                                                         <p class="lead">
@@ -147,8 +147,9 @@
                                                             of
                                                             the manufacturer and efficiency.
                                                             But roughly, we can say that average price of an inverter is
-                                                            0.3 $/Wp. Also, for large systems, more than one inverter is
-                                                            being used.
+                                                            0.3 $/Wp. For large systems, more than one inverter is
+                                                            being used, but the price per Wp should not change
+                                                            dramatically.
 
                                                             As for cost of installation, it is different by country
                                                             because
