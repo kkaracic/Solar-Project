@@ -39,6 +39,10 @@ app.get('/investor', (req, res) => {
     res.render('investor_calculation');
 })
 
+app.get('/help', (req, res) => {
+    res.render('help');
+})
+
 app.post('/resultsInv', async (req, res) => {
     //console.log(LatLong.slat);
     const apiResponse = JSON.parse(JSON.stringify(req.body));
