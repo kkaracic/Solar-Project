@@ -43,6 +43,10 @@ app.get('/help', (req, res) => {
     res.render('help');
 })
 
+app.get('/engineer', (req, res) => {
+    res.render('engineer');
+})
+
 app.post('/resultsInv', async (req, res) => {
     //console.log(LatLong.slat);
     const apiResponse = JSON.parse(JSON.stringify(req.body));
