@@ -35,10 +35,23 @@ function irradiance(Latitude) {
             Id.push(A * Math.exp(-k * m) * (angles + difusion + reflection));
         }
         //first we need an average Irradiation in W/m^2
-        var average_irradiation = arraysum(Id) / Id.length;
+        var len = Id.length;
+        if (len === 0) len = 1;
+        var average_irradiation = arraysum(Id) / len;
         //now we calculate the sunset angle so we can calculate the duration of the day
         var sunset_angle = Math.abs(-Math.acos(-Math.tan(delta) * Math.tan(toRad(Latitude))));
         var dayduration = 2 * (sunset_angle) / toRad(15);
+        //now we calculate in-plane irradiation in kWh/m^2 for each day and put it in array
+        var dayduration = 0, sunset_angle = 0;
+        if (Math.abs(Math.tan(delta) * Math.tan(toRad(Latitude))) >= 1) {
+            Irp.push(average_irradiation * 24 / 1000);
+            continue;
+        }
+        else {
+            sunset_angle = Math.abs(-Math.acos(-Math.tan(delta) * Math.tan(toRad(Latitude))));
+            dayduration = 2 * (sunset_angle) / toRad(15);
+        }
+
         //now we calculate in-plane irradiation in kWh/m^2 for each day and put it in array
         Irp.push(average_irradiation * dayduration / 1000);
     }
