@@ -71,12 +71,10 @@
             </div>
 
             <script>
-
                 var map = L.map('map', {
                     center: [43.8563, 18.4131],
                     zoom: 8
                 });
-
                 L.control.scale().addTo(map);
                 // Create a Tile Layer and add it to the map
                 var tiles = new L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map);

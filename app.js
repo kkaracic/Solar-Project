@@ -4,6 +4,7 @@ const app = express();
 var path = require("path");
 const mongoose = require("mongoose");
 const IrrModel = require("./Project_model/Irradiation")
+var func = require("./datafunc");
 
 mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
@@ -68,7 +69,8 @@ app.post('/resultsInv', async (req, res) => {
     const iData = {
         Latitude: iLatitude,
         Longitude: iLongitude,
-        Irradiation: iModel[0].toObject().Irradiation.toString(),
+        // Irradiation: iModel[0].toObject().Irradiation.toString(),
+        Irradiation: func.irradiance(req.body.slat),
         Average_monthly_consumption: apiResponse.Average_monthly_consumption,
     }
     res.render('resultsInv', { iData: iData });
