@@ -110,40 +110,7 @@
                 <div>
                     <input type="hidden" name="slat" id="hiddenInputlat" />
                     <input type="hidden" name="slon" id="hiddenInputlon" />
-                    <label for="Latitude">Latitude</label>
-                    <select list="Latitude" id="Latitude" name="Latitude">
-                        <datalist id="Latitude">
-                            <% for (let i=0; i < 91; i++) { %>
-                                <option value=<%=i %>>
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </datalist>
-                    </select>
-                    <label for="Longitude">Longitude</label>
-                    <select list="Longitude" id="Longitude" name="Longitude">
-                        <datalist id="Longitude">
-                            <% for (let i=0; i < 181; i++) { %>
-                                <option value=<%=i %>>
-                                    <%= i %>
-                                </option>
-                                <% } %>
-                        </datalist>
-                    </select>
-                    <div>
-                        <label for="Hemispheres">Select
-                            hemispheres</label>
-                        <br>
-                        <label for="North">North</label>
-                        <input type="radio" name="N_or_S" value="North" checked="checked">
-                        <label for="South">South</label>
-                        <input type="radio" name="N_or_S" value="South">
-                        <br>
-                        <label for="West">West</label>
-                        <input type="radio" name="W_or_E" value="West" checked="checked">
-                        <label for="East">East</label>
-                        <input type="radio" name="W_or_E" value="East">
-                    </div>
+                    <br>
                     <p class="lead">
                         Now we move to the cruical paramether.
                         If your solar system would be for your own use, we need to know how much of electricity you
@@ -162,11 +129,23 @@
                             <input type="number" id="Average month" name="Average_monthly_consumption"
                                 class="form-control" min="0" required>
                             <br>
-                            <button class="w-100 btn btn-lg btn-primary" style="width: 5px;">Calculate my
+                            <button class="w-100 btn btn-lg btn-primary" style="width: 5px;"
+                                onclick="return checkfunction()">Calculate my
                                 system</button>
                         </form>
+                        <script>
+                            function checkfunction() {
+                                if (document.getElementById("hiddenInputlat").value === '') {
+                                    window.alert("Please choose a location!");
+                                    return false;
+                                }
+                                return true;
+                            }
+                        </script>
                     </div>
+
             </form>
+
         </div>
     </main>
     <footer>

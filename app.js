@@ -51,7 +51,7 @@ app.get('/engineer', (req, res) => {
 app.post('/resultsInv', async (req, res) => {
     //console.log(LatLong.slat);
     const apiResponse = JSON.parse(JSON.stringify(req.body));
-    var iLatitude = apiResponse.Latitude;
+    /*var iLatitude = apiResponse.Latitude;
     var iLongitude = apiResponse.Longitude;
     console.log(parseInt(req.body.slat));
     console.log(parseInt(req.body.slon));
@@ -65,10 +65,10 @@ app.post('/resultsInv', async (req, res) => {
     }
     const iModel = await IrrModel.find({ $and: [{ Latitude: iLatitude }, { Longitude: iLongitude }] });
     console.log(iModel);
-    console.log(iModel[0].toObject().Irradiation);
+    console.log(iModel[0].toObject().Irradiation);*/
     const iData = {
-        Latitude: iLatitude,
-        Longitude: iLongitude,
+        Latitude: req.body.slat,
+        Longitude: req.body.slon,
         // Irradiation: iModel[0].toObject().Irradiation.toString(),
         Irradiation: func.irradiance(req.body.slat),
         Average_monthly_consumption: apiResponse.Average_monthly_consumption,
