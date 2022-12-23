@@ -2,11 +2,11 @@ const express = require("express");
 var bodyParser = require('body-parser');
 const app = express();
 var path = require("path");
-const mongoose = require("mongoose");
-const IrrModel = require("./Project_model/Irradiation")
+//const mongoose = require("mongoose");
+//const IrrModel = require("./Project_model/Irradiation")
 var func = require("./datafunc");
 
-mongoose.connect('mongodb://localhost:27017/Irrbase', {
+/*mongoose.connect('mongodb://localhost:27017/Irrbase', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -15,7 +15,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
-})
+})*/
 
 
 app.set('view engine', 'ejs');
