@@ -54,7 +54,7 @@
             <br>
             <h1 class="mt-5">Results</h1>
 
-            <%var number_of_panels=(iData.Average_monthly_consumption*12)/(1.7*0.18*iData.Irradiation)%>
+            <%var number_of_panels=(iData.Average_monthly_consumption*12)/(1.7*0.16*iData.Irradiation)%>
                 <% number_of_panels450=number_of_panels*1.7/2.09%>
                     <% number_of_panels550=number_of_panels*1.7/2.56%>
                         <% number_of_panels=Math.round(number_of_panels)%>
@@ -63,11 +63,11 @@
                                     <p class="lead">
                                         We begin the analysis with the required number of solar panels. In the market,
                                         panels vary by their
-                                        rated power as well as their size.
+                                        rated power as well as their size and efficiency.
                                         <br>
                                         In the table below, we are showing three most common types of panels with their
                                         characteristics.
-                                        Also, if you choose one of them, you can see how many of them is required to
+                                        If you choose one of them, you can see how many of them is required to
                                         achive the goal mentioned earlier.
                                     </p>
                                     <table class="table">
@@ -118,13 +118,6 @@
                                                     <% var power=rounding(350*number_of_panels)/1000 %>
 
                                                         <p class="lead">
-                                                            To clarify, if you choose 350Wp panels, you need <%=
-                                                                number_of_panels%>
-                                                                and if you would like to use only 450Wp panels, you need
-                                                                <%= number_of_panels450%> panels and for 550 Wp
-                                                                    <%= number_of_panels550%> panels.
-                                                        </p>
-                                                        <p class="lead">
                                                             Solar panels alone are pretty much useless
                                                             without
                                                             invertors,
@@ -169,16 +162,18 @@
                                                         <p class="lead">
                                                             When all expenses are sum up, we can estimate your
                                                             investement
-                                                            around:
-                                                            <%=rounding(number_of_panels*173+power*1000**0.8*0.3+
-                                                                1.7*number_of_panels*10 /0.0929)%> $
+                                                            around: <b>
+                                                                <%=rounding(number_of_panels*173+power*1000*0.8*0.3+
+                                                                    1.7*number_of_panels*15 /0.0929)%> $
+                                                            </b>
                                                         </p>
 
                                                         <div class="alert alert-warning"><strong>Note!</strong> Please
                                                             be aware that
                                                             these
                                                             calculations
-                                                            are not based on fully correct model, so our estimation can
+                                                            do not take all parameters into account, so our estimation
+                                                            can
                                                             be
                                                             wrong. If
                                                             you
