@@ -37,7 +37,7 @@ app.get('/questions', (req, res) => {
 })
 
 app.get('/investor', (req, res) => {
-    res.render('investor_calculation');
+    res.render('Investor_calculation');
 })
 
 app.get('/help', (req, res) => {
