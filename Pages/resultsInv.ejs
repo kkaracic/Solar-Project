@@ -53,141 +53,158 @@
                         <% number_of_panels=Math.round(number_of_panels)%>
                             <% number_of_panels450=Math.round(number_of_panels450)%>
                                 <% number_of_panels550=Math.round(number_of_panels550)%>
-                                    <p class="lead">
-                                        In the market,
-                                        solar panels vary by their
-                                        rated power as well as their size and efficiency.
-                                        <br>
-                                        In the table below, we are showing three most common types of panels with their
-                                        characteristics.
-                                        If you choose one of them, you can see how many of them is required to
-                                        achive the goal mentioned earlier.
-                                    </p>
-                                    <table class="table">
-                                        <thead class="thead-dark" style="text-align: center;">
-                                            <th scope="col">Rated power (Wp)</th>
-                                            <th scope="col">Size of one panel (m<sup>2</sup>)</th>
-                                            <th scope="col">Number of panels required</th>
-                                            <th scope="col">Price range of one panel ($)</th>
+                                    <% if(number_of_panels===0 && iData.Average_monthly_consumption>0)
+                                        number_of_panels=1%>
+                                        <% if(number_of_panels450===0 && iData.Average_monthly_consumption>0)
+                                            number_of_panels450=1%>
+                                            <% if(number_of_panels550===0 && iData.Average_monthly_consumption>0)
+                                                number_of_panels550=1%>
+                                                <p class="lead">
+                                                    In the market,
+                                                    solar panels vary by their
+                                                    rated power as well as their size and efficiency.
+                                                    <br>
+                                                    In the table below, we are showing three most common types of panels
+                                                    with their
+                                                    characteristics.
+                                                    If you choose one of them, you can see how many of them is required
+                                                    to
+                                                    achive the goal mentioned earlier.
+                                                </p>
+                                                <table class="table">
+                                                    <thead class="thead-dark" style="text-align: center;">
+                                                        <th scope="col">Rated power (Wp)</th>
+                                                        <th scope="col">Size of one panel (m<sup>2</sup>)</th>
+                                                        <th scope="col">Number of panels required</th>
+                                                        <th scope="col">Price range of one panel ($)</th>
 
-                                        </thead>
-                                        <tr style="text-align: center;">
-                                            <td>350</td>
-                                            <td>1.7</td>
-                                            <td>
-                                                <output id="Out">
-                                                    <%=number_of_panels%>
-                                                </output>
-                                            </td>
-                                            <td>160-185</td>
-                                        </tr>
-                                        <tr style="text-align: center;">
-                                            <td>450</td>
-                                            <td>2.09</td>
-                                            <td>
-                                                <output id="Out2">
-                                                    <%=number_of_panels450%>
-                                                </output>
-                                            </td>
-                                            <td>210-240</td>
-                                        </tr>
-                                        <tr style="text-align: center;">
-                                            <td>550</td>
-                                            <td>2.56</td>
-                                            <td>
-                                                <output id="Out2">
-                                                    <%=number_of_panels550%>
-                                                </output>
-                                            </td>
-                                            <td>260-295</td>
-                                        </tr>
-                                    </table>
+                                                    </thead>
+                                                    <tr style="text-align: center;">
+                                                        <td>350</td>
+                                                        <td>1.7</td>
+                                                        <td>
+                                                            <output id="Out">
+                                                                <%=number_of_panels%>
+                                                            </output>
+                                                        </td>
+                                                        <td>160-185</td>
+                                                    </tr>
+                                                    <tr style="text-align: center;">
+                                                        <td>450</td>
+                                                        <td>2.09</td>
+                                                        <td>
+                                                            <output id="Out2">
+                                                                <%=number_of_panels450%>
+                                                            </output>
+                                                        </td>
+                                                        <td>210-240</td>
+                                                    </tr>
+                                                    <tr style="text-align: center;">
+                                                        <td>550</td>
+                                                        <td>2.56</td>
+                                                        <td>
+                                                            <output id="Out2">
+                                                                <%=number_of_panels550%>
+                                                            </output>
+                                                        </td>
+                                                        <td>260-295</td>
+                                                    </tr>
+                                                </table>
 
 
-                                    <%=console.log(iData) %>
-                                        <% function rounding(v1) { %>
-                                            <% return Math.round(v1/100)*100 %>
-                                                <% } %>
-                                                    <% var power=rounding(350*number_of_panels)/1000 %>
+                                                <%=console.log(iData) %>
+                                                    <% function rounding(v1) { %>
+                                                        <% return Math.round(v1/100)*100 %>
+                                                            <% } %>
+                                                                <% var power=rounding(350*number_of_panels)/1000 %>
 
-                                                        <p class="lead">
-                                                            Solar panels alone are pretty much useless
-                                                            without
-                                                            invertors,
-                                                            which are
-                                                            converting DC into AC.
-                                                            Most solar systems don not regularly produce at
-                                                            their
-                                                            nameplate
-                                                            capacity, so
-                                                            the best option is choosing the inverter which
-                                                            power rating
-                                                            is
-                                                            about 80%
-                                                            of
-                                                            the solar system.
-                                                            Your system has power around <%=power%> kW,
-                                                                so you should choose an inverter with the nominal power
-                                                                closest to
-                                                                <%= parseFloat(power*0.8).toFixed(1) %>
-                                                                    kW.
-                                                        </p>
-                                                        <p class="lead">
-                                                            Prices of inveters generally have a wide range, and
-                                                            it
-                                                            depends
-                                                            of
-                                                            the manufacturer and efficiency.
-                                                            But roughly, we can say that average price of an
-                                                            inverter is
-                                                            0.3 $/Wp. For large systems, more than one inverter
-                                                            is
-                                                            being used, but the price per Wp is not changing
-                                                            dramatically.
-                                                        </p>
-                                                        <p class="lead">
+                                                                    <p class="lead">
+                                                                        Solar panels alone are pretty much useless
+                                                                        without
+                                                                        invertors,
+                                                                        which are
+                                                                        converting DC into AC.
+                                                                        Most solar systems don not regularly produce at
+                                                                        their
+                                                                        nameplate
+                                                                        capacity, so
+                                                                        the best option is choosing the inverter which
+                                                                        power rating
+                                                                        is
+                                                                        about 80%
+                                                                        of
+                                                                        the solar system.
+                                                                        Your system has power around <%=power%> kW,
+                                                                            so you should choose an inverter with the
+                                                                            nominal power
+                                                                            closest to
+                                                                            <%= parseFloat(power*0.8).toFixed(1) %>
+                                                                                kW.
+                                                                    </p>
+                                                                    <p class="lead">
+                                                                        Prices of inveters generally have a wide range,
+                                                                        and
+                                                                        it
+                                                                        depends
+                                                                        of
+                                                                        the manufacturer and efficiency.
+                                                                        But roughly, we can say that average price of an
+                                                                        inverter is
+                                                                        0.3 $/Wp. For large systems, more than one
+                                                                        inverter
+                                                                        is
+                                                                        being used, but the price per Wp is not changing
+                                                                        dramatically.
+                                                                    </p>
+                                                                    <p class="lead">
 
-                                                            When it comes to the other costs, like getting project
-                                                            documentation and installation of the solar system, it is
-                                                            different by country
-                                                            because
-                                                            of
-                                                            the different labor costs. But in the developped country,
-                                                            for these,
-                                                            you
-                                                            should invest
-                                                            around
-                                                            <%=rounding(1.7*number_of_panels*12 /0.0929)%> $
+                                                                        When it comes to the other costs, like getting
+                                                                        project
+                                                                        documentation and installation of the solar
+                                                                        system, it is
+                                                                        different by country
+                                                                        because
+                                                                        of
+                                                                        the different labor costs. But in the developped
+                                                                        country,
+                                                                        for these,
+                                                                        you
+                                                                        should invest
+                                                                        around
+                                                                        <%=rounding(1.7*number_of_panels*12 /0.0929)%> $
 
-                                                        </p>
-                                                        <p class="lead">
-                                                            When all expenses are sum up, we can estimate your
-                                                            investement
-                                                            around: <b>
-                                                                <%=rounding(number_of_panels*173+power*1000*0.8*0.3+
-                                                                    1.7*number_of_panels*15 /0.0929)%> $
-                                                            </b>
-                                                        </p>
+                                                                    </p>
+                                                                    <p class="lead">
+                                                                        When all expenses are sum up, we can estimate
+                                                                        your
+                                                                        investement
+                                                                        around: <b>
+                                                                            <%=rounding(number_of_panels*173+power*1000*0.8*0.3+
+                                                                                1.7*number_of_panels*15 /0.0929)%> $
+                                                                        </b>
+                                                                    </p>
 
-                                                        <div class="alert alert-warning"><strong>Note!</strong> Please
-                                                            be aware that
-                                                            these
-                                                            calculations
-                                                            do not take all parameters into account, so our estimation
-                                                            can
-                                                            be
-                                                            wrong. If
-                                                            you
-                                                            really want to invest, please consult an expert!
-                                                        </div>
-                                                        <div class="form-signin w-100 m-auto">
-                                                            <form action="/investor" method="get">
-                                                                <button class="w-100 btn btn-lg btn-primary"
-                                                                    style="width: 5px;">Back
-                                                                    to
-                                                                    calculation</button>
-                                                            </form>
-                                                        </div>
+                                                                    <div class="alert alert-warning">
+                                                                        <strong>Note!</strong> Please
+                                                                        be aware that
+                                                                        these
+                                                                        calculations
+                                                                        do not take all parameters into account, so our
+                                                                        estimation
+                                                                        can
+                                                                        be
+                                                                        wrong. If
+                                                                        you
+                                                                        really want to invest, please consult an expert!
+                                                                    </div>
+                                                                    <div class="form-signin w-100 m-auto">
+                                                                        <form action="/investor" method="get">
+                                                                            <button class="w-100 btn btn-lg btn-primary"
+                                                                                style="width: 5px;">Back
+                                                                                to
+                                                                                calculation</button>
+                                                                        </form>
+                                                                    </div>
 
         </div>
     </main>
